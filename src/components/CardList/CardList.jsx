@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Card from './Card';
 
-
+//komentarz dla testu
 const CardList = ({ cards }) => {
 
     const cardList = cards.map( card => (
