@@ -2,7 +2,7 @@ import './Root.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import store from '../../store';
+import store from '../../store/redux';
 import StartView from '../StartView/StartView';
 import GameView from '../GameView/GameView';
 import EndView from '../EndView/EndView';

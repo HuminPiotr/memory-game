@@ -1,7 +1,14 @@
 import React from 'react';
 
+import ScoreList from '../../components/ScoreList/ScoreList';
+
 const EndView = () => (
-    <p>This is the end</p>
+    <>
+    <div className="container">
+        <p>Five of the best</p>
+        <ScoreList />
+    </div>
+    </>
 )
 
-export default EndView
+export default EndView;

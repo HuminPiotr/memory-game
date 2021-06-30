@@ -1,20 +1,56 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { flipUpCard, flipDownCards } from '../../actions';
+import { flipDownCards, flipUpFirstCard, flipUpSecondCard, checkPair, frozenGame, defrostGame } from '../../actions';
 
 import './style.css';
 
-const Card = ({ id, picture, visibility, totalFlips, flipUpCard, flipDownCards}) => {
+
+
+const Card = (
+  { id, picture, visibility, 
+    totalFlips, isFrozen, 
+    flipUpFirstCard, 
+    flipUpSecondCard, 
+    checkPair,
+    frozenGame, 
+    defrostGame, 
+    flipDownCards
+  }) => {
+
+
+
 
     const clickCard = () => {
+      const isFirstCard = totalFlips % 2 === 0;
+
+      const TIME_OF_VISIBILITY_CARD = 700;
+      const TIME_OF_FROZEN = 600;
+
+
+
       if(visibility === 'hidden'){
-        console.log('aha')
-        flipUpCard(id);
-      }
-      if(totalFlips % 2 === 0){
-        setTimeout(flipDownCards,2000);
-      }
+        if(isFirstCard && !isFrozen){
+          flipUpFirstCard(id);
+        }
+        else if(!isFirstCard && !isFrozen){
+          flipUpSecondCard(id);
+          frozenGame();
+          setTimeout(() => {
+            checkPair()            
+            setTimeout(() => {
+              flipDownCards();
+              defrostGame();
+            }, TIME_OF_FROZEN);
+
+          },TIME_OF_VISIBILITY_CARD)
+       
+          
+         
+
+          
+        }
+    }
       
     
     }
@@ -22,8 +58,10 @@ const Card = ({ id, picture, visibility, totalFlips, flipUpCard, flipDownCards})
         <>
           <div className="card" onClick={clickCard}>
             <div className={`card__content ${visibility}`}  >
-              <div className="face front">front</div>
-              <div className="face back ">{picture}</div>
+              <div className="face front"></div>
+              <div className="face back ">
+                <img src={picture} alt="image" className="picture"/>
+              </div>
             </div>
 
           </div>
@@ -33,13 +71,17 @@ const Card = ({ id, picture, visibility, totalFlips, flipUpCard, flipDownCards})
 }
 
 const mapStateToProps = state => {
-    const { totalFlips } = state;
-    return { totalFlips };
+    const { totalFlips,  isFrozen} = state;
+    return { totalFlips, isFrozen };
 }
 
 const mapDispatchToProps = dispatch => ({
-  flipUpCard: (id) => dispatch(flipUpCard(id)),
-  flipDownCards: () => dispatch(flipDownCards())
+  flipUpFirstCard: (id) => dispatch(flipUpFirstCard(id)),
+  flipUpSecondCard: (id) => dispatch(flipUpSecondCard(id)),
+  checkPair: () => dispatch(checkPair()),
+  flipDownCards: () => dispatch(flipDownCards()),
+  frozenGame: () => dispatch(frozenGame()),
+  defrostGame: () => dispatch(defrostGame()),
 })
 
 export default connect(
