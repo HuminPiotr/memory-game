@@ -9,13 +9,10 @@ const initialState = {
     gameComplete: false,
     cards: [],
     scoreList: [],
-
 }
 
-
-
 const rootReducer = (state = initialState, action) => {
-    const {cards, firstCardId, secondCardId, pairsFound, timeGame} = state;
+    const {cards, firstCardId, secondCardId, pairsFound } = state;
 
     switch(action.type) {
         case('START_GAME'):
@@ -37,11 +34,10 @@ const rootReducer = (state = initialState, action) => {
                 cards: cards.map(card => {
                     if(card.id == action.payload.id) {
                         card.visibility = 'open';
-                    }
-                    
+                    }    
                     return card;
                 }),
-                firstCardId: action.payload.id ,
+                firstCardId: action.payload.id,
             }
 
         case (`FLIP_UP_SECOND_CARD`):
@@ -57,21 +53,6 @@ const rootReducer = (state = initialState, action) => {
                 secondCardId: action.payload.id,  
             }
      
-        case('FLIP_UP_CARD'):
-            return {
-                ...state,
-                totalFlips: state.totalFlips += 1,
-                cards: cards.map(card => {
-                    if(card.id === action.payload.id) {
-                        card.visibility = 'open';
-                    }
-                    return card;
-                }),  
-                firstCardId: cards.filter( (card) => state.totalFlips % 2 === 0 && 
-                card.id === action.payload.id )
-                
-            }
-
         case('CHECK_PAIR'):
                 const cardPair = cards.filter( (card) => card.id === firstCardId || card.id === secondCardId);
 
@@ -113,12 +94,23 @@ const rootReducer = (state = initialState, action) => {
             }
         
         case('SAVE_TIME'):
-
             return{
                 ...state,
                 timeGame: action.payload.timeGame,
             }
+
+        case('COMPLETE_GAME'):
+            return{
+                ...state,
+                gameComplete: true,
+            }
         
+        case('END_GAME'):
+            return{
+                ...state,
+                gameComplete: false,
+                pairsFound: 0,
+            }
     }
     return state;
 };

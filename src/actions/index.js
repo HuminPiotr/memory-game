@@ -60,3 +60,15 @@ export const saveTime = (timeGame) => {
     }
 }
 
+export const completeGame = () => {
+    return {
+        type: `COMPLETE_GAME`
+    }
+}
+
+export const endGame = () => {
+    return {
+        type: `END_GAME`,
+    }
+}
+

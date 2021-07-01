@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const PlayerName = ({ playerName }) => <h2>{playerName}</h2>
+const PlayerName = ({ playerName }) => <h2>{ playerName }</h2>
 
 
 const mapStateToProps = state => {

@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
+import styled from 'styled-components';
 
-import { startGame } from '../../actions';
-import { shuffleArray } from '../../functions/shuffleArray';
+import { completeGame, startGame } from '../../actions';
+import { shuffleArray } from '../../utils/shuffleArray';
 
 import CardList from '../CardList/CardList';
-import PlayerName from '../PlayerName/PlayerName';
-import Timer from '../Timer/Timer';
-import TotalFlips from '../TotalFlips/TotalFlips';
+import PlayerName from '../PlayerName/PlayerName.jsx';
+import Timer from '../Timer/Timer.jsx';
+import TotalFlips from '../TotalFlips/TotalFlips.jsx';
 
 //images
 import alien from '../../assets/images/alien.svg';
@@ -18,20 +19,49 @@ import panda from '../../assets/images/panda.svg';
 import pig from '../../assets/images/pig.svg';
 import wolf from '../../assets/images/wolf.svg';
 
-import './style.css';
+const GameWrapper = styled.div`
+    margin: 25px;
+    display: flex;
 
-const Game = ({ startGame, pairsFound }) => {
+    @media(max-width: 600px){
+        margin: 0;
+        flex-direction: column-reverse;
+    }
+
+    .panel {
+        display: flex;
+        flex-direction: column;
+        width: 15%;
+        margin-top: 20px;
+        text-align: center;
+        @media(max-width: 600px){
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            
+        }
+    }
+    .board {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        background: #053C5E;
+        max-width: 800px;
+        width: 100%;
+        min-height: 80vh;
+        margin: 0 auto;
+    }
+`
+
+const Game = ({ startGame, pairsFound, gameComplete, completeGame}) => {
          
         const playerName = localStorage.getItem('PLAYER_NAME');
-        // const pictureList = [
-        //     alien, alien, dog, dog, monkey, monkey, panda, panda, wolf, wolf, pig, pig
-        // ]        //od liczby par zależeć będzie ile kart jest wygenerowanych
         const pictureList = [
-            alien, alien
-        ]
-        const [gameIsComplete, setGameIsComplite] = useState(false); 
-        
+            alien, alien, dog, dog, monkey, monkey, panda, panda, wolf, wolf, pig, pig
+        ]        //od liczby par zależeć będzie ile kart jest wygenerowanych
 
+            
     useEffect( () => {
         const cards = createCards();
         startGame(playerName, cards);
@@ -39,9 +69,9 @@ const Game = ({ startGame, pairsFound }) => {
 
     useEffect( () => {
         if(pairsFound >= pictureList.length / 2){
-            setGameIsComplite(true);
-
+            completeGame();
         }
+
     },[pairsFound])
 
 
@@ -57,10 +87,9 @@ const Game = ({ startGame, pairsFound }) => {
         return cardsObject;
     }
 
-
         return (
             <>
-            <div className="container">
+            <GameWrapper>
                 <div className="panel">
                     <PlayerName />
                     <Timer />
@@ -70,10 +99,9 @@ const Game = ({ startGame, pairsFound }) => {
                 <div className="board">
                     <CardList />
                 </div>
-            </div>
+            </GameWrapper>
             {
-                gameIsComplete &&
-                <Redirect to="/end" />
+                gameComplete && <Redirect to="/end" />
             }
             </>
         )
@@ -81,14 +109,15 @@ const Game = ({ startGame, pairsFound }) => {
 }
 
 const mapStateToProps = (state) => {
-    const { pairsFound } = state;
-    return { pairsFound };
+    const { pairsFound, gameComplete } = state;
+    return { pairsFound, gameComplete };
 }
 
 const mapDispatchToProps = 
     dispatch => ({
         startGame: (playerName, cardsObject) => 
         dispatch(startGame(playerName, cardsObject)),
+        completeGame: () => dispatch(completeGame()),
     })
 
 export default connect(

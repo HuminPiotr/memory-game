@@ -3,14 +3,10 @@ import { connect } from 'react-redux';
 
 import { saveTime } from '../../actions';
 
-
-import './style.css';
-
 class Timer extends Component {
     constructor(props) {
         super(props);
         this.saveTime = props.saveTime;
-        console.log(props)
         this.state = { 
             time: 0,
             timerOn: false
@@ -28,7 +24,6 @@ class Timer extends Component {
          }
 
          componentWillUnmount() {
-            console.log(this.state.time);
            this.saveTime(this.state.time) 
             clearInterval(this.interval);
          }

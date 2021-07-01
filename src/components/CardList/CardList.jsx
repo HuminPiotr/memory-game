@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-
 import Card from './Card';
 
 const CardList = ({ cards }) => {
@@ -12,13 +11,12 @@ const CardList = ({ cards }) => {
             picture={card.picture} 
             visibility={card.visibility} 
             key={card.id} 
-        />) ); 
+        />) 
+    ); 
 
-
-    
     return (
         <>
-        {cardList}
+            {cardList}
         </>
     )
 }
@@ -27,6 +25,5 @@ const mapStateToProps = (state) => {
     const { cards } = state;
     return { cards };
 }
-
 
 export default connect(mapStateToProps)(CardList);
