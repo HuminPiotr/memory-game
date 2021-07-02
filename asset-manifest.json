@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/memory-game/static/js/main.ea2d8d61.chunk.js",
+    "main.js.map": "/memory-game/static/js/main.ea2d8d61.chunk.js.map",
+    "runtime-main.js": "/memory-game/static/js/runtime-main.48ba1512.js",
+    "runtime-main.js.map": "/memory-game/static/js/runtime-main.48ba1512.js.map",
+    "static/js/2.306d9012.chunk.js": "/memory-game/static/js/2.306d9012.chunk.js",
+    "static/js/2.306d9012.chunk.js.map": "/memory-game/static/js/2.306d9012.chunk.js.map",
+    "index.html": "/memory-game/index.html",
+    "static/js/2.306d9012.chunk.js.LICENSE.txt": "/memory-game/static/js/2.306d9012.chunk.js.LICENSE.txt",
+    "static/media/alien.1f8261d7.svg": "/memory-game/static/media/alien.1f8261d7.svg",
+    "static/media/dog.4df5ec30.svg": "/memory-game/static/media/dog.4df5ec30.svg",
+    "static/media/monkey.e99edbe7.svg": "/memory-game/static/media/monkey.e99edbe7.svg",
+    "static/media/panda.3ff9f857.svg": "/memory-game/static/media/panda.3ff9f857.svg",
+    "static/media/pig.4980aafc.svg": "/memory-game/static/media/pig.4980aafc.svg",
+    "static/media/wolf.e0a3ff60.svg": "/memory-game/static/media/wolf.e0a3ff60.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.48ba1512.js",
+    "static/js/2.306d9012.chunk.js",
+    "static/js/main.ea2d8d61.chunk.js"
+  ]
+}
