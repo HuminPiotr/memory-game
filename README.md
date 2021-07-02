@@ -1,4 +1,4 @@
-Gra w pamięć napisana w react - wykorzystująca redux.
+Gra w pamięć React Redux
 
 # Getting Started with Create React App
 
