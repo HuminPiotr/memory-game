@@ -1,5 +1,7 @@
 Gra w pamięć React Redux
 
+LIVE: https://memory-game-ph.netlify.app/
+
 # Getting Started with Create React App
 
 ## Available Scripts
