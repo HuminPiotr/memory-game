@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+Gra w pamięć napisana w react - wykorzystująca redux.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Getting Started with Create React App
 
 ## Available Scripts
 
