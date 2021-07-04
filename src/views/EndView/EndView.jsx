@@ -15,10 +15,16 @@ const Table = styled.div`
     margin: auto;
     border: solid teal 2px;
 `
+const Background = styled.div`
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to left, var(--secondary),  var(--primary));
+
+`
 
 const StyledWrapper = styled.div`
     display: flex;
-    margin: 25px;
+    padding: 25px;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -34,6 +40,7 @@ const StyledWrapper = styled.div`
 
 const EndView = ({ endGame }) => (
     <>
+        <Background>
         <StyledWrapper>
             <h1>Best of the best</h1>
             <Table>
@@ -41,6 +48,7 @@ const EndView = ({ endGame }) => (
             </Table>
             <Link to="/" className="button" onClick={endGame}> New game </Link>
         </StyledWrapper>
+        </Background>
     </>
 )
 

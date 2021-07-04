@@ -36,7 +36,6 @@ const CardWrapper = styled.div`
       transform: translateX(0%) rotateY(0deg);
     }
     &.found{
-      background: grey;
       opacity: 0;
       cursor: default;
     }
@@ -50,17 +49,19 @@ const CardWrapper = styled.div`
     text-align: center;
     font-size: 60px;
     backface-visibility: hidden;
+    border-radius: 20px;
   }
 
   .front {
-    background: #cbc0d3;
-    border: solid 5px #8e9aaf;
+    border: solid 5px var(--teriary);
+    background-image: repeating-linear-gradient( 
+      45deg, var(--secondary) 0px, var(--secondary) 1px, var(--primary) 2px, var(--primary) 4px );
   }
 
   .back {
-    background: #dee2ff;
+    background-color: var(--quaternary);
     transform: rotateY(180deg);
-    border: solid 5px #8e9aaf;
+    border: solid 5px var(--secondary);
   }
 
   .picture {

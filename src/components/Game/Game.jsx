@@ -20,11 +20,12 @@ import pig from '../../assets/images/pig.svg';
 import wolf from '../../assets/images/wolf.svg';
 
 const GameWrapper = styled.div`
-    margin: 25px;
+    padding: 25px;
     display: flex;
 
     @media(max-width: 600px){
         margin: 0;
+        padding: 0;
         flex-direction: column-reverse;
     }
 
@@ -46,7 +47,7 @@ const GameWrapper = styled.div`
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
-        background: #053C5E;
+        background: var(--quinary);
         max-width: 800px;
         width: 100%;
         min-height: 80vh;
