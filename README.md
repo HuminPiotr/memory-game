@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+Gra w pamięć React Redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+LIVE: https://memory-game-ph.netlify.app/
+
+# Getting Started with Create React App
 
 ## Available Scripts
 
