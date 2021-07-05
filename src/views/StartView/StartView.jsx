@@ -34,12 +34,15 @@ const StyledWrapper = styled.div`
         display: inline-block;
         text-transform: uppercase;
         font-size: 14px;
+        position: relative;
+        top: 10px;
     }
 
     input {
         height: 50px;
         font-size: 16px;
         background: transparent;
+        border-color: white;
     }
 
     .button {
@@ -48,6 +51,7 @@ const StyledWrapper = styled.div`
         border: solid 1px #1111f8;
         color: #1111f8;
         text-decoration: none;
+        border-radius: 20px;
     }
 `
 const Background = styled.div`

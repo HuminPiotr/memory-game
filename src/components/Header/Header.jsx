@@ -15,6 +15,11 @@ const StyledHeader = styled.h1`
         margin: 0;
         margin-bottom: 50px;
         color: var(--secondary);
+        text-shadow: 1px 1px 5px var(--quaternary);
+
+    @media(max-width: 600px){
+        font-size: 10vw;
+    }
         
     &::before{
         content: 'MEMORY';

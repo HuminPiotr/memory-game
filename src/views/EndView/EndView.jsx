@@ -35,6 +35,7 @@ const StyledWrapper = styled.div`
         border: solid 1px blue;
         color: blue;
         text-decoration: none;
+        border-radius: 20px;
     }
 `
 
