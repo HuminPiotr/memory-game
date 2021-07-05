@@ -35,6 +35,8 @@ const GameWrapper = styled.div`
         width: 15%;
         margin-top: 20px;
         text-align: center;
+        border: 1px solid var(--quaternary);
+        color: var(--secondary);
         @media(max-width: 600px){
             flex-direction: row;
             justify-content: space-around;
@@ -47,7 +49,8 @@ const GameWrapper = styled.div`
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
-        background: var(--quinary);
+        /* background: var(--quinary); */
+        background: transparent;
         max-width: 800px;
         width: 100%;
         min-height: 80vh;
@@ -61,6 +64,7 @@ const Game = ({ startGame, pairsFound, gameComplete, completeGame}) => {
         const pictureList = [
             alien, alien, dog, dog, monkey, monkey, panda, panda, wolf, wolf, pig, pig
         ]        //od liczby par zależeć będzie ile kart jest wygenerowanych
+
 
             
     useEffect( () => {

@@ -53,15 +53,15 @@ const CardWrapper = styled.div`
   }
 
   .front {
-    border: solid 5px var(--teriary);
+    /* border: solid 5px var(--quaternary); */
     background-image: repeating-linear-gradient( 
-      45deg, var(--secondary) 0px, var(--secondary) 1px, var(--primary) 2px, var(--primary) 4px );
+      210deg, var(--tertiary) 0px, var(--tertiary) 1px, var(--primary) 2px, var(--primary) 4px );
   }
 
   .back {
-    background-color: var(--quaternary);
+    background-color: var(--secondary);
     transform: rotateY(180deg);
-    border: solid 5px var(--secondary);
+    border: solid 5px var(--tertiary);
   }
 
   .picture {

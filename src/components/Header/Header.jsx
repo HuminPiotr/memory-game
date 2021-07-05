@@ -14,8 +14,9 @@ const StyledHeader = styled.h1`
         letter-spacing: 10px;
         margin: 0;
         margin-bottom: 50px;
-        color: var(--secondary);
-        text-shadow: 1px 1px 5px var(--quaternary);
+        color: var(--tertiary);
+        text-shadow: 1px 1px 5px var(--secondary
+        );
 
     @media(max-width: 600px){
         font-size: 10vw;
