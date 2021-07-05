@@ -55,7 +55,7 @@ const CardWrapper = styled.div`
   .front {
     /* border: solid 5px var(--quaternary); */
     background-image: repeating-linear-gradient( 
-      210deg, var(--tertiary) 0px, var(--tertiary) 1px, var(--primary) 2px, var(--primary) 4px );
+    210deg, var(--tertiary) 0px,var(--tertiary) 1px,var(--tertiary) 2px,var(--secondary) 5px );
   }
 
   .back {
