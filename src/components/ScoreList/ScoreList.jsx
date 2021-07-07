@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { convertTime } from '../../utils/convertTime';
 import uniqid from 'uniqid'
@@ -9,19 +8,7 @@ import ScoreRepository from '../../store/ScoreRepository'
 import ScoreStorage from '../../store/ScoreStorage';
 import ListItem from './ListItem.jsx';
 
-
-//style
-const StyledScoreList = styled.ul`
-    list-style-type: decimal;
-    text-align: left;
-    text-align: center;
-    display: inline-block;
-
-    .scoreList__actualScore {
-     padding-left: 25px;
-     font-weight: bold;
-}
-`
+import * as Styled from './ScoreList.styled';
 
 
 
@@ -71,7 +58,7 @@ const ScoreList = ({ playerName, timeGame, totalFlips }) => {
 
     return (
         <>
-                <StyledScoreList>
+                <Styled.ScoreList>
                     {scoreList}
                     
                         { !scoreList.find(item => item.key === actualScore.id  ) &&   
@@ -84,7 +71,7 @@ const ScoreList = ({ playerName, timeGame, totalFlips }) => {
                         }
 
                     
-                </StyledScoreList>
+                </Styled.ScoreList>
         </>
     )
 }
